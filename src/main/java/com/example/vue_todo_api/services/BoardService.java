@@ -35,7 +35,9 @@ public class BoardService {
                     .title(item.getTitle())
                     .content(item.getContent())
                     .writer(item.getWriter())
-                    .writedate(LocalDateTime.from(LocalDate.parse(item.getWritedate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))))
+                    //.writedate(LocalDateTime.from(LocalDate.parse(item.getWritedate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))))
+                    // 이미 엔티티가 LocalDateTime 형식이라 쓸데없는 변환을 주고 있었음
+                    .writedate(item.getWritedate())
                     .build();
 
             log.info(dto.toString());
@@ -57,7 +59,8 @@ public class BoardService {
                 .title(entity.getTitle())
                 .content(entity.getContent())
                 .writer(entity.getWriter())
-                .writedate(LocalDateTime.from(LocalDate.parse(entity.getWritedate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))))
+                //.writedate(LocalDateTime.from(LocalDate.parse(entity.getWritedate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))))
+                .writedate(entity.getWritedate())
                 .build();
 
         log.info("게시글 단일 조회Service builder 후 dto");
