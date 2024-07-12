@@ -1,5 +1,6 @@
 package com.example.vue_todo_api.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +18,8 @@ import java.time.LocalDateTime;
 public class BoardDto implements Serializable {
     private Long idx;
     private String title;
-    private String content;
+    private String contents;
     private String writer;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime writedate;
 }

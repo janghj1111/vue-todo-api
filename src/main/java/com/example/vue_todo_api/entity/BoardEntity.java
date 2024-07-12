@@ -1,5 +1,6 @@
 package com.example.vue_todo_api.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +22,8 @@ public class BoardEntity {
     // @Column(name = "user_name", nullable = false, length = 50) // 열에 대한 세부 설정을 지정
     private Long idx;
     private String title;
-    private String content;
+    private String contents;
     private String writer;
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime writedate;
 }

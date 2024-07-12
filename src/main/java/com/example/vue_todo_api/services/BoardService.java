@@ -33,7 +33,7 @@ public class BoardService {
             BoardDto dto = BoardDto.builder()
                     .idx(item.getIdx())
                     .title(item.getTitle())
-                    .content(item.getContent())
+                    .contents(item.getContents())
                     .writer(item.getWriter())
                     //.writedate(LocalDateTime.from(LocalDate.parse(item.getWritedate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))))
                     // 이미 엔티티가 LocalDateTime 형식이라 쓸데없는 변환을 주고 있었음
@@ -57,7 +57,7 @@ public class BoardService {
         BoardDto dto = BoardDto.builder()
                 .idx(entity.getIdx())
                 .title(entity.getTitle())
-                .content(entity.getContent())
+                .contents(entity.getContents())
                 .writer(entity.getWriter())
                 //.writedate(LocalDateTime.from(LocalDate.parse(entity.getWritedate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))))
                 .writedate(entity.getWritedate())
@@ -74,7 +74,7 @@ public class BoardService {
     public BoardEntity insertBoard(BoardDto boardDto) {
         BoardEntity entity = BoardEntity.builder()
                 .title(boardDto.getTitle())
-                .content(boardDto.getContent())
+                .contents(boardDto.getContents())
                 .writer(boardDto.getWriter())
                 .writedate(LocalDateTime.from(LocalDate.from(LocalDateTime.now())))
                 .build();
@@ -89,7 +89,7 @@ public class BoardService {
         BoardEntity entity = boardRepository.findById(boardDto.getIdx())
                 .orElseThrow(()-> new RuntimeException("게시물을 찾을 수 없음!!"));
         entity.setTitle(boardDto.getTitle());
-        entity.setContent(boardDto.getContent());
+        entity.setContents(boardDto.getContents());
         // entity.setWriteDate(LocalDate.from(LocalDateTime.now())); 수정한 날짜가 필요하지 않을까?
         return boardRepository.save(entity);
     }
