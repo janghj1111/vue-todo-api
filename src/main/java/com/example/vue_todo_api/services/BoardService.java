@@ -76,7 +76,8 @@ public class BoardService {
                 .title(boardDto.getTitle())
                 .contents(boardDto.getContents())
                 .writer(boardDto.getWriter())
-                .writedate(LocalDateTime.from(LocalDate.from(LocalDateTime.now())))
+                //.writedate(LocalDateTime.from(LocalDate.from(LocalDateTime.now())))
+                .writedate(LocalDateTime.now())
                 .build();
 
         return boardRepository.save(entity);

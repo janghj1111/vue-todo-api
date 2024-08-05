@@ -7,6 +7,11 @@ server:
 spring:
   jackson:
     property-naming-strategy: SNAKE_CASE
+    # 0805 추가
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Seoul
+    serialization:
+      write-dates-as-timestamps: false
 
   h2:
     console:
