@@ -31,7 +31,10 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	//{ exclude(group = "org.junit.vintage", module = "junit-vintage-engine") }
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation("org.springframework.boot:spring-boot-starter-websocket") /* 0812 웹소켓추가 */
+
 }
 
 tasks.withType<Test> {
