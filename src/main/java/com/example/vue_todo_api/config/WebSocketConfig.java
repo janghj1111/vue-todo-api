@@ -1,4 +1,4 @@
-package com.example.vue_todo_api.services;
+package com.example.vue_todo_api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
